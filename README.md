@@ -470,40 +470,55 @@ PostgreSQL failure
 Impact:
 
 Flag writes fail
+
 Cache-backed evaluations may continue temporarily
 
 Mitigation:
 
 Read replicas
+
 automated failover
+
 backups
+
 connection pool limits
+
 circuit breaker
+
 Redis failure
 
 Impact:
 
 Evaluation falls back to PostgreSQL
+
 Latency increases
 
 Mitigation:
 
 Redis cluster
+
 short DB fallback path
+
 local cache fallback
+
 circuit breaker to avoid Redis timeout storms
+
 Kafka failure
 
 Impact:
 
 Flag update succeeds in DB
+
 Propagation events may be delayed
 
 Mitigation:
 
 transactional outbox pattern
+
 retry publisher
+
 dead-letter topic
+
 idempotent consumers
 
 Recommended production improvement:
